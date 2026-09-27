@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: referee-coach
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: "echo no build"
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: APP_PASSCODE
+        sync: false
+      - key: CLAUDE_MODEL
+        value: claude-sonnet-5
